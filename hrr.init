@@ -1,0 +1,9 @@
+#!/bin/bash
+
+INIT__RR_VERSION="v01.01"
+INIT__BASE_DIR="/media/scii/2TB/pipeline/houdini/scripts/shell/run_render_${INIT__RR_VERSION}"
+INIT__FXHOME_DIR="/media/scii/2TB/pipeline/houdini"
+
+export INIT__RR_VERSION INIT__BASE_DIR INIT__FXHOME_DIR
+
+echo "Houdini Run Render Version: ${INIT__RR_VERSION}"
