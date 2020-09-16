@@ -8,7 +8,7 @@
 
 ---
 
-[![asciicast](https://asciinema.org/a/F5lzoSTpvYTWLuBFEg48yBDTo.svg)](https://asciinema.org/a/F5lzoSTpvYTWLuBFEg48yBDTo)
+![Alt text](wirtten_command.svg)
 
 You can conveniently use it by entering the following command in .bashrc or .zshrc.
 ```shell script
