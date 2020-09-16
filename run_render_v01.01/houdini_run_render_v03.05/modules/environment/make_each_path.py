@@ -18,7 +18,7 @@ import glob
 def init_set():
     args = sys.argv[1:]
     if len(args) != 3:
-        print("인자값이 3개가 아닙니다.")
+        sys.stderr.write("There are no three argument values")
         sys.exit(1)
     return args
 

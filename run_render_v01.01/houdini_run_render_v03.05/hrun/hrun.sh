@@ -50,11 +50,11 @@ if [[ -d ${FXHOME} ]];then
     fi
 
     # info
-    #echo "0" $BASE_DIR              -> /Rnd/FX/houdini/scripts/RunRender_v01.01
+    #echo "0" $BASE_DIR              -> /pipeline/houdini/scripts/RunRender_v01.01
     #echo "1" $FXSCRIPT              -> scripts
-    #echo "2" $FXSCRIPT_ROOT         -> wswgs__houdini__run__render_v03.01
-    #echo "3" $FXSCRIPT_FULL_DIR     -> /Rnd/FX/houdini/scripts/RunRender_v01.01/wswgs__houdini__run__render_v03.01
-    #echo "4" $FXHOME_DIR            -> /Rnd/FX/houdini
+    #echo "2" $FXSCRIPT_ROOT         -> houdini_run_render_v03.05
+    #echo "3" $FXSCRIPT_FULL_DIR     -> /pipeline/houdini/scripts/RunRender_v01.01/houdini_run_render_v03.05
+    #echo "4" $FXHOME_DIR            -> /pipeline/houdini
     #
 
     ######################### UnSet Variables #########################

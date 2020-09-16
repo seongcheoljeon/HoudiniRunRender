@@ -60,36 +60,34 @@ fi
 
 function DEBUG_OPT()
 {
-    echo "FXUSER: ${FXUSER}"
-    echo "HOUDINI_VERSION: ${HOUDINI_VERSION}"
-    echo "FXHOME: ${FXHOME}"
-    echo "FXHOMEBRG: ${FXHOMEBRG}"
-    echo "COMMON: ${COMMON}"
-    echo "FXSHOW: ${FXSHOW}"
-    echo "HFILE: ${HFILE}"
-    echo "DRIVER: ${DRIVER}"
-    echo "SFRAME: ${SFRAME}"
-    echo "EFRAME: ${EFRAME}"
-    echo "FRAME_SIGNAL: ${FRAME_SIGNAL}"
-    echo "NODEPS: ${NODEPS}"
-    echo "RENDERDIR: ${RENDERDIR}"
-    echo "ENV_HIP: ${ENV_HIP}"
-    echo "ENV_HIPNAME: ${ENV_HIPNAME}"
-    echo "ENV_HIPFILE: ${ENV_HIPFILE}"
-    echo "NO_SQL: ${NO_SQL}"
-    echo "ONLY_ENV: ${ONLY_ENV}"
+  echo "FXUSER: ${FXUSER}"
+  echo "HOUDINI_VERSION: ${HOUDINI_VERSION}"
+  echo "FXHOME: ${FXHOME}"
+  echo "FXHOMEBRG: ${FXHOMEBRG}"
+  echo "COMMON: ${COMMON}"
+  echo "FXSHOW: ${FXSHOW}"
+  echo "HFILE: ${HFILE}"
+  echo "DRIVER: ${DRIVER}"
+  echo "SFRAME: ${SFRAME}"
+  echo "EFRAME: ${EFRAME}"
+  echo "FRAME_SIGNAL: ${FRAME_SIGNAL}"
+  echo "NODEPS: ${NODEPS}"
+  echo "RENDERDIR: ${RENDERDIR}"
+  echo "ENV_HIP: ${ENV_HIP}"
+  echo "ENV_HIPNAME: ${ENV_HIPNAME}"
+  echo "ENV_HIPFILE: ${ENV_HIPFILE}"
+  echo "NO_SQL: ${NO_SQL}"
+  echo "ONLY_ENV: ${ONLY_ENV}"
 }
-# TODO (2019.01.08): 주석처리 함.
+
 # DEBUG_OPT
 
-
 if [[ ! -f ${HFILE} ]];then
-    echo
-    echo "HIP File Not Found!!!"
-    echo
-    exit 55
+  echo
+  echo "HIP File Not Found!!!"
+  echo
+  exit 55
 fi
-
 
 if [[ -d ${FXHOME} ]];then
 	source "${FXSCRIPT_FULL_MODULES_ENV_DIR}/houdini_env.sh" ${FXUSER} ${HOUDINI_VERSION} ${FXHOME} ${FXHOMEBRG} ${COMMON} ${FXSHOW} 0 ${NO_SQL}
@@ -103,13 +101,13 @@ if [[ -d ${FXHOME} ]];then
 		:
 	fi
 
-    ######################### UnSet Variables #########################
-    source "${FXSCRIPT_FULL_DIR}/unset.sh" "render"
-    ###################################################################
+  ######################### UnSet Variables #########################
+  source "${FXSCRIPT_FULL_DIR}/unset.sh" "render"
+  ###################################################################
 
-    ########################## Set Variables ##########################
-    export FXHOME
-    ###################################################################
+  ########################## Set Variables ##########################
+  export FXHOME
+  ###################################################################
 
 	echo
 	echo "Houdini Version: $HOUDINI_VERSION"
@@ -119,51 +117,26 @@ if [[ -d ${FXHOME} ]];then
 
 	cd $OLD_PATH
 
-    # TODO (2019.01.08): 주석처리 함.
-	# echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-	# echo "DEF_OPT_DIR: ${DEF_OPT_DIR}"
-	# echo "DEF_HOU_BRG: ${DEF_HOU_BRG}"
-	# echo "HOUDINI_VERSION: ${HOUDINI_VERSION}"
-	# echo "----------------------------------------------------------------------------------"
-	# echo "HFILE: ${HFILE}"
-	# echo "----------------------------------------------------------------------------------"
-	# echo "ENV_HIP: ${ENV_HIP}"
-	# echo "ENV_HIPNAME: ${ENV_HIPNAME}"
-	# echo "ENV_HIPFILE: ${ENV_HIPFILE}"
-	# echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-	# echo
+  RUN_TYPE="python"
+  #RUN_TYPE="shell"
 
-
-    RUN_TYPE="python"
-    #RUN_TYPE="shell"
-
-    echo "Run Type: ${RUN_TYPE}"
-    # TODO (2019.01.08): 주석처리 함.
-	# echo "ALL Parameters: $*"
+  echo "Run Type: ${RUN_TYPE}"
 
 	if [[ "${RUN_TYPE}" == "shell" ]];then
-	"/${DEF_OPT_DIR}/${DEF_HOU_BRG}${HOUDINI_VERSION}/bin/hbatch" "${HFILE}" <<- EOF!
-	set -g HIP = ${ENV_HIP}
-	varchange "HIP"
-	set -g HIPNAME = ${ENV_HIPNAME}
-	varchange "HIPNAME"
-	set -g HIPFILE = ${ENV_HIPFILE}
-	varchange "HIPFILE"
-
-	#echo "=================================== DEBUG ==================================="
-	#echo "render -V -I ${NODEPS} ${FRAME_SIGNAL} ${SFRAME} ${EFRAME} ${DRIVER} ${RENDERDIR}"
-	#echo "============================================================================="
-
-	render -V -I ${NODEPS} ${FRAME_SIGNAL} ${SFRAME} ${EFRAME} ${DRIVER} ${RENDERDIR}
-	EOF!
-	elif [[ "${RUN_TYPE}" == "python" ]];then
-	    echo "##########################################################################"
-        exec hython "${FXSCRIPT_FULL_HRENDER_DIR}/hrender.py" -I -v $*
-	    echo "##########################################################################"
-    else
-        echo "Select Run Type -> Shell or Python"
+    "/${DEF_OPT_DIR}/${DEF_HOU_BRG}${HOUDINI_VERSION}/bin/hbatch" "${HFILE}" <<- EOF!
+    set -g HIP = ${ENV_HIP}
+    varchange "HIP"
+    set -g HIPNAME = ${ENV_HIPNAME}
+    varchange "HIPNAME"
+    set -g HIPFILE = ${ENV_HIPFILE}
+    varchange "HIPFILE"
+    render -V -I ${NODEPS} ${FRAME_SIGNAL} ${SFRAME} ${EFRAME} ${DRIVER} ${RENDERDIR}
+    EOF!
+  elif [[ "${RUN_TYPE}" == "python" ]];then
+    echo "##########################################################################"
+    exec hython "${FXSCRIPT_FULL_HRENDER_DIR}/hrender.py" -I -v $*
+    echo "##########################################################################"
+  else
+    echo "Select Run Type -> Shell or Python"
 	fi
-
 fi
-
-

@@ -21,13 +21,16 @@ class ReturnArgs(hrender_args.GetArgs):
     def __init__(self):
         super(ReturnArgs, self).__init__()
 
-    def get_fxhome(self):
+    @staticmethod
+    def get_fxhome():
         return default.Default.get_fxhome()
 
-    def get_fxhome_bridge(self):
+    @staticmethod
+    def get_fxhome_bridge():
         return default.Default.get_fxhome_user_brg()
 
-    def get_common_bridge(self):
+    @staticmethod
+    def get_common_bridge():
         return default.Default.get_common_brg()
 
     def get_show_option(self):
@@ -71,9 +74,9 @@ if __name__ == "__main__":
         [
             rtnargs.get_fxuser(),
             rtnargs.get_fxversion()[0],
-            rtnargs.get_fxhome(),
-            rtnargs.get_fxhome_bridge(),
-            rtnargs.get_common_bridge(),
+            ReturnArgs.get_fxhome(),
+            ReturnArgs.get_fxhome_bridge(),
+            ReturnArgs.get_common_bridge(),
             rtnargs.get_show_option(),
             rtnargs.get_hipfile,
             rtnargs.get_driver,

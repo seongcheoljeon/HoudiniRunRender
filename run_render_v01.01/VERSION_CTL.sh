@@ -6,7 +6,7 @@
 
 #set -o nounset                              # Treat unset variables as an error
 
-#export PYTHONPATH=/Rnd/anaconda2.nonGui/lib/python2.7/site-packages:/Rnd/site-packages
+#export PYTHONPATH=/pipeline/anaconda2.nonGui/lib/python2.7/site-packages:/pipeline/site-packages
 
 INIT__HVERSION="18.0"
 INIT__SCRIPT_VERSION="v03.05"

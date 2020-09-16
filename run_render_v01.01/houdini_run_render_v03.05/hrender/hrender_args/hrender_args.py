@@ -151,7 +151,7 @@ class GetArgs(object):
             if self.fxuser not in udirlist:
                 _file, _line, _func = inspect.getframeinfo(inspect.currentframe())[:3]
                 default.Default.error_message(
-                    "입력한 -fxu 혹은 --fxuser옵션의 \"{0}\" 이(가) \"{1}\" 디렉토리에 존재하지 않습니다.".format(
+                    "The entered -fxu or --fxuser option {0} does not exist in the {1} directory".format(
                         self.fxuser, user_root_dir), _exit=True, _file=_file, _line=_line, _func=_func)
             return self.fxuser
         return None
@@ -163,11 +163,11 @@ class GetArgs(object):
             if not os.path.exists(hdir):
                 _file, _line, _func = inspect.getframeinfo(inspect.currentframe())[:3]
                 default.Default.error_message(
-                    "디렉토리 경로가 존재하지 않습니다. -> {0}".format(hdir),
+                    "The directory path does not exist -> {0}".format(hdir),
                     _exit=False, _file=_file, _line=_line, _func=_func)
-                self.chk_installed_houdini(hdir_root_dir)
+                GetArgs.chk_installed_houdini(hdir_root_dir)
                 for hd in glob(default.Default.merge_path(hdir_root_dir, default.Default.get_hou_brg() + "*")):
-                    print("설치되어 있는 Houdini Version: {0}".format(hd))
+                    print("The installed Houdini Version: {0}".format(hd))
                 print()
                 exit(1)
             else:
@@ -175,12 +175,13 @@ class GetArgs(object):
             return self.fxversion
         return None
 
-    def chk_installed_houdini(self, pdir):
+    @staticmethod
+    def chk_installed_houdini(pdir):
         hlist = glob(default.Default.merge_path(pdir, default.Default.get_hou_brg() + "*"))
         if len(hlist) == 0:
             _file, _line, _func = inspect.getframeinfo(inspect.currentframe())[:3]
             default.Default.error_message(
-                "설치된 Houdini Version이 하나도 없습니다.", _exit=True, _file=_file, _line=_line, _func=_func)
+                "Houdini is not installed.", _exit=True, _file=_file, _line=_line, _func=_func)
         else:
             pass
 

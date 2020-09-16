@@ -117,14 +117,7 @@ class RenderSetParm(object):
         self.ropNode.render(
             verbose=bool(self.args.v_option), frame_range=framerange, method=interleave)
 
-    def hou_test(self):
-        import hou
-        print()
-        print("'hou' module import test:", hou.__file__)
-        print()
-
 
 if __name__ == '__main__':
     rsp = RenderSetParm()
-    #rsp.hou_test()
 

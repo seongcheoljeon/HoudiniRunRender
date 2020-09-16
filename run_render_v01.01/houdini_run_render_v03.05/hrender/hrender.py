@@ -36,9 +36,9 @@ class HRender(hrender_args.GetArgs):
         hipfile_var = 'HIPFILE'
 
         print('--------------------------------------------------------')
-        print('사본 HIP: {0}'.format(hou.getenv(hip_var)))
-        print('사본 HIPNAME: {0}'.format(hou.getenv(hipname_var)))
-        print('사본 HIPFILE: {0}'.format(hou.getenv(hipfile_var)))
+        print('Copy HIP: {0}'.format(hou.getenv(hip_var)))
+        print('Copy HIPNAME: {0}'.format(hou.getenv(hipname_var)))
+        print('Copy HIPFILE: {0}'.format(hou.getenv(hipfile_var)))
 
         hou.hscript('set -g %s = %s' % (hip_var, self.get_hip))
         hou.hscript('varchange %s' % hip_var)
@@ -48,9 +48,9 @@ class HRender(hrender_args.GetArgs):
         hou.hscript('varchange %s' % hipfile_var)
 
         print('--------------------------------------------------------')
-        print('원본 HIP: {0}'.format(hou.getenv(hip_var)))
-        print('원본 HIPNAME: {0}'.format(hou.getenv(hipname_var)))
-        print('원본 HIPFILE: {0}'.format(hou.getenv(hipfile_var)))
+        print('Original HIP: {0}'.format(hou.getenv(hip_var)))
+        print('Original HIPNAME: {0}'.format(hou.getenv(hipname_var)))
+        print('Original HIPFILE: {0}'.format(hou.getenv(hipfile_var)))
         print('--------------------------------------------------------')
 
     def render(self):

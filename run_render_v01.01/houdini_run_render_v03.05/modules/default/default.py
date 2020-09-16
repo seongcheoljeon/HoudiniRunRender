@@ -46,7 +46,7 @@ class Default(object):
     def get_default_uname():
         default_uname = os.getenv("DEF_FXUSER")
         if default_uname is None:
-            Default.error_message("FXUSER 변수 설정이 되어있지 않습니다.", _exit=True)
+            Default.error_message("FXUSER variable is not set.", _exit=True)
         return default_uname
 
     @staticmethod
@@ -54,12 +54,12 @@ class Default(object):
         if not os.path.isdir(_dir):
             _file, _line, _func = inspect.getframeinfo(inspect.currentframe())[:3]
             Default.error_message(
-                "{0} 은(는) 디렉토리가 아닙니다.".format(_dir),
+                "{0} is not a directory.".format(_dir),
                 _exit=True, _file=_file, _line=_line, _func=_func)
         if not os.path.exists(_dir):
             _file, _line, _func = inspect.getframeinfo(inspect.currentframe())[:3]
             Default.error_message(
-                "{0} 은(는) 존재하지 않는 디렉토리입니다.".format(_dir),
+                "{0} is a nonexistent directory.".format(_dir),
                 _exit=True, _file=_file, _line=_line, _func=_func)
         return True
 
