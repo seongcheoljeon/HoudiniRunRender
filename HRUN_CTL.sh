@@ -7,15 +7,10 @@
 #set -o nounset                              # Treat unset variables as an error
 
 PARENT_DIR="/media/scii/2TB/pipeline/houdini/scripts/houdini_run_render"
-
-RRINITFILE="${PARENT_DIR}/hrr.init"
-source ${RRINITFILE}
-
-source "${PARENT_DIR}/run_render_${INIT__RR_VERSION}/VERSION_CTL.sh"
+source "${PARENT_DIR}/VERSION_CTL.sh"
 
 SCRIPT_VERSION="${INIT__SCRIPT_VERSION}"
 HVERSION="${INIT__HVERSION}"
-
 BASE_DIR="${INIT__BASE_DIR}"
 HRUN_DIR="${INIT__HRUN_DIR}"
 HRUN_FILE="hrun.sh"

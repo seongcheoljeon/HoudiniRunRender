@@ -50,10 +50,10 @@ if [[ -d ${FXHOME} ]];then
     fi
 
     # info
-    #echo "0" $BASE_DIR              -> /pipeline/houdini/scripts/RunRender_v01.01
+    #echo "0" $BASE_DIR              -> /pipeline/houdini/scripts/houdini_run_render
     #echo "1" $FXSCRIPT              -> scripts
-    #echo "2" $FXSCRIPT_ROOT         -> houdini_run_render_v03.05
-    #echo "3" $FXSCRIPT_FULL_DIR     -> /pipeline/houdini/scripts/RunRender_v01.01/houdini_run_render_v03.05
+    #echo "2" $FXSCRIPT_ROOT         -> core
+    #echo "3" $FXSCRIPT_FULL_DIR     -> /pipeline/houdini/scripts/houdini_run_render/core
     #echo "4" $FXHOME_DIR            -> /pipeline/houdini
     #
 

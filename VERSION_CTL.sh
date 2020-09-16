@@ -8,11 +8,13 @@
 
 #export PYTHONPATH=/pipeline/anaconda2.nonGui/lib/python2.7/site-packages:/pipeline/site-packages
 
+INIT__FXHOME_DIR="/media/scii/2TB/pipeline/houdini"
+INIT__BASE_DIR="${INIT__FXHOME_DIR}/scripts/houdini_run_render"
 INIT__HVERSION="18.0"
-INIT__SCRIPT_VERSION="v03.05"
-INIT__HRUN_DIR="houdini_run_render_${INIT__SCRIPT_VERSION}"
+INIT__HRUN_DIR="core"
+INIT__SCRIPT_VERSION="v1.01"
 
-export INIT__SCRIPT_VERSION INIT__HVERSION INIT__BASE_DIR INIT__HRUN_DIR INIT_FXHOME_DIR
+export INIT__FXHOME_DIR INIT__BASE_DIR INIT__HVERSION INIT__HRUN_DIR
 
 
 
