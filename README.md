@@ -20,7 +20,7 @@ alias h18="hrun --fxuser=[USERNAME] --fxversion=[HOUDINI VERSION]"
 
 # Directory structure
 
-![Alt text](Untitled Diagram.svg)
+![Alt text](dir_structure.svg)
 
 ---
 
