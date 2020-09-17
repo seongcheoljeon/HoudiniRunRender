@@ -172,6 +172,7 @@ function _SystemEnvironment()
     export HOUDINI_NO_SPLASH=0
     export HOUDINI_NO_START_PAGE_SPLASH=1
     export HOUDINI_UISCALE=200
+    export VISUAL="/snap/bin/code -w -n"
     # (2019.04.17): ocio 환경변수 추가
 #    export OCIO="/home/method/nukesetting/assets/cache_data/ocio/sfm/config.ocio"
     # OpenCL setting
