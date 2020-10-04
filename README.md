@@ -23,7 +23,3 @@ alias h18="hrun --fxuser=[USERNAME] --fxversion=[HOUDINI VERSION]"
 ![Alt text](dir_structure.svg)
 
 ---
-
-## SUPPORT
-
-<a href="https://www.buymeacoffee.com/seongcheoljeon" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
